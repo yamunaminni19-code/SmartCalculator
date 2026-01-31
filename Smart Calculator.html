@@ -1,0 +1,34 @@
+# Smart Calculator
+# Author: Your Name
+# Description: A simple smart calculator using Python
+
+import math
+
+def calculator():
+    print("==== Smart Calculator ====")
+    print("Operations available:")
+    print("+  -  *  /")
+    print("Power (**)")
+    print("Square root (sqrt)")
+    print("Type 'exit' to stop")
+
+    while True:
+        expression = input("\nEnter calculation: ")
+
+        if expression.lower() == "exit":
+            print("Thanks for using the calculator ")
+            break
+
+        try:
+            # Allow sqrt usage
+            expression = expression.replace("sqrt", "math.sqrt")
+
+            result = eval(expression)
+            print("Answer:", result)
+
+        except ZeroDivisionError:
+            print("Error: Cannot divide by zero")
+        except:
+            print("Invalid input! Please try again")
+
+calculator()
